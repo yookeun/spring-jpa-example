@@ -1,0 +1,2 @@
+INSERT INTO test_db.book(author, title, description, reg_date) VALUES('kim', 'Who are you', 'novel', NOW());
+INSERT INTO test_db.book(author, title, description, reg_date) VALUES('홍길동', '누구냐 넌?', '소설', NOW());
