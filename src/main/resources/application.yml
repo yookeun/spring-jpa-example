@@ -3,9 +3,9 @@ security:
     name: user
     password: test
     
-
 spring:
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver   
     url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf8
     username: root
@@ -17,4 +17,20 @@ spring:
   mvc:
     view:
       prefix: /WEB-INF/views/
-      suffix: .jsp
+      suffix: .jsp    
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver   
+#    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf8
+#    username: root
+#    password: 1234
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true 
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/views/
+#      suffix: .jsp
