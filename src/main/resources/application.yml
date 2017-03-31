@@ -2,14 +2,20 @@ security:
   user:
     name: user
     password: test
+   
     
 spring:
+  profiles:
+   active: local
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver   
     url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf8
     username: root
     password: 1234
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 30  
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,7 +24,29 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp    
+      
+--- #구분
 
+spring:
+  profiles: dev
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver   
+    url: jdbc:mysql://192.168.0.146:3306/test?useUnicode=true&characterEncoding=utf8
+    username: arserver
+    password: tlfnakstp
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 30      
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true 
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp    
+  
 
 #spring:
 #  datasource:

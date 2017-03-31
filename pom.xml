@@ -6,7 +6,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>spring-jpa-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>spring-jpa-example</name>
 	<description>Demo project for Spring Boot</description>
@@ -43,11 +43,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		
+		<!-- war 배포용 추가  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>		
+				
 		<!-- jsp, jstl  -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -97,6 +104,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- 
+			   	<configuration>
+			          <profiles>
+			            <profile>local</profile>
+			            <profile>dev</profile>
+			          </profiles>
+			    </configuration>
+			     -->				
 			</plugin>
 		</plugins>
 	</build>
