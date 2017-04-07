@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class SpringJpaExampleApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		SpringApplication.run(SpringJpaExampleApplication.class, args);
 	}
 

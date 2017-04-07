@@ -100,21 +100,23 @@
 	</dependencies>
 
 	<build>
+		<finalName>jpa-example</finalName>
+		  <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>			
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<!-- 
-			   	<configuration>
-			          <profiles>
-			            <profile>local</profile>
-			            <profile>dev</profile>
-			          </profiles>
-			    </configuration>
-			     -->				
+				<artifactId>spring-boot-maven-plugin</artifactId>			
 			</plugin>
 		</plugins>
 	</build>
+	
+	
+	
 
 
 </project>

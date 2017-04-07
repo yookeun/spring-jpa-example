@@ -1,5 +1,7 @@
 package com.example.book.control;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +16,8 @@ import com.example.book.repository.BookRepository;
 @Controller
 public class BookController {
 	
+	protected static Logger log = LoggerFactory.getLogger("JPA-EXAMPLE");
+	
 	@Autowired 
 	private BookRepository bookRepository;	
 	
@@ -21,6 +25,8 @@ public class BookController {
 	public ModelAndView listBooks() {	
 		ModelAndView model = new ModelAndView("list");
 		model.addObject("bookList", bookRepository.findAll());
+		log.info("List log info....");
+		log.debug("List log debug===");
 		return model;
 	}	
 	
