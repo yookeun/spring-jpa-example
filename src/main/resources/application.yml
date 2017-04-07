@@ -1,16 +1,25 @@
 server:
   port: 8080
-  context-path: /jpa-example
+  #context-path: /jpa-example
 
 security:
+  basic:
+    enabled: false
   user:
     name: user
-    password: test   
-    
+    password: test
+
+
+management:
+  security:
+    enabled: false
+
+
 --- #구분    
     
 spring:
-  profiles: local
+  profiles:
+  active: local  
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver   
@@ -41,9 +50,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver   
-    url: jdbc:mysql://192.168.0.146:3306/test?useUnicode=true&characterEncoding=utf8
-    username: arserver
-    password: tlfnakstp
+    url: jdbc:mysql://192.168.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 1234
     hikari:
       maximum-pool-size: 10
       max-lifetime: 30      
