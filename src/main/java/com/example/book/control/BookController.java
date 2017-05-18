@@ -43,14 +43,14 @@ public class BookController {
 	}
 	
 	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
-	public ModelAndView viewBook(@PathVariable("id") int id) {		
+	public ModelAndView viewBook(@PathVariable("id") Long id) {		
 		ModelAndView model = new ModelAndView("view");
 		model.addObject("book", bookRepository.findOne(id));
 		return model;
 	}
 	
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
-	public ModelAndView updateBook(@PathVariable("id") int id) {		
+	public ModelAndView updateBook(@PathVariable("id") Long id) {		
 		ModelAndView model = new ModelAndView("update");
 		model.addObject("book", bookRepository.findOne(id));
 		return model;
@@ -63,9 +63,19 @@ public class BookController {
 	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteBook(@PathVariable("id") int id) {		
+	public ModelAndView deleteBook(@PathVariable("id") Long id) {		
 		bookRepository.delete(id);
 		return new ModelAndView("redirect:/.");
+	}
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public String insertBook() {
+		Book book = new Book();
+		book.setAuthor("kim");
+		book.setDescription("description");
+		book.setTitle("test");
+		bookRepository.saveAndFlush(book);
+		return "redirect:/";
 	}
 	
 	
