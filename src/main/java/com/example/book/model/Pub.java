@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -22,11 +24,14 @@ public class Pub {
 	private Long id;	
 	
 	@Column(name = "name", nullable = false)
-	private String name;
-	
+	private String name;	
 	
 	//연관관계의 오너로 Book.pub 를 지정 
 	@OneToMany(mappedBy = "pub")
 	private List<Book> books = new ArrayList<Book>();
+		
+	@OneToOne
+	@JoinColumn(name = "pub_loc_id")
+	private PubLoc pubLoc;
 	
 }

@@ -39,6 +39,16 @@ public class Book {
 	@JoinColumn(name = "pub_id")
 	private Pub pub;	
 	
+	//연관관계메소드 
+	public void setPub(Pub pub) {
+		//기존연관관계제거 
+		if (this.pub != null) {
+			this.pub.getBooks().remove(this);
+		}
+		this.pub = pub;
+		pub.getBooks().add(this);
+	}
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
